@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automated Patient Screening Services Pvt. Ltd.</title>
     <style>
-        /* --- Reset & Global Styles --- */
+        /* ==========================================================================
+           1. BASE / GLOBAL STYLES (Applies to all screens)
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -35,7 +37,6 @@
             color: inherit;
         }
 
-        /* --- Header & Navigation --- */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -44,17 +45,8 @@
             z-index: 1000;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-
         .logo {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--secondary-color);
             display: flex;
@@ -62,52 +54,21 @@
             gap: 12px;
         }
 
-        /* --- Logo Image Styling --- */
         .logo-img {
             height: 45px;
             width: auto;
             object-fit: contain;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-dark);
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Hero Section --- */
         .hero {
             background: linear-gradient(135deg, var(--secondary-color) 0%, #1e293b 100%);
             color: var(--white);
-            padding: 6rem 2rem;
             text-align: center;
         }
 
         .hero-container {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
         }
 
         .btn {
@@ -124,16 +85,13 @@
             background-color: var(--primary-dark);
         }
 
-        /* --- Section Container --- */
         .section {
-            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
         }
@@ -144,22 +102,20 @@
             margin-bottom: 3rem;
         }
 
-        /* --- Products Grid --- */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        /* Cards & Product Base */
+        .product-card, .card, .team-card, .contact-info {
+            background-color: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
         }
 
         .product-card {
-            background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .product-card:hover {
@@ -188,9 +144,7 @@
             text-transform: uppercase;
         }
 
-        .badge-ai {
-            background-color: #8b5cf6;
-        }
+        .badge-ai { background-color: #8b5cf6; }
 
         .product-body {
             padding: 1.8rem;
@@ -250,19 +204,9 @@
             color: var(--white);
         }
 
-        /* --- Services / Features Grid --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
         .card {
-            background-color: var(--white);
             padding: 2rem;
-            border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -287,19 +231,9 @@
             font-size: 0.95rem;
         }
 
-        /* --- Team Section --- */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-        }
-
         .team-card {
-            background-color: var(--white);
             padding: 1.5rem;
-            border-radius: 8px;
             text-align: center;
-            border: 1px solid #e2e8f0;
         }
 
         .avatar {
@@ -324,17 +258,13 @@
             margin-top: 0.2rem;
         }
 
-        /* --- Contact Section --- */
         .contact-container {
             max-width: 650px;
             margin: 0 auto;
         }
 
         .contact-info {
-            background-color: var(--white);
             padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
@@ -389,14 +319,198 @@
             font-size: 0.9rem;
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
+
+        /* ==========================================================================
+           2. DESKTOP VIEW FORMAT (Screens 769px and wide monitors)
+           ========================================================================== */
+        @media screen and (min-width: 769px) {
             .navbar {
-                flex-direction: column;
-                gap: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 1rem 2rem;
             }
+
+            .mobile-toggle {
+                display: none; /* Hide hamburger icon on desktop */
+            }
+
+            .nav-links {
+                display: flex;
+                list-style: none;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                font-weight: 500;
+                color: var(--text-dark);
+                transition: color 0.3s;
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+
+            .hero {
+                padding: 6rem 2rem;
+            }
+
             .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.2rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                color: #94a3b8;
+                margin-bottom: 2rem;
+            }
+
+            .section {
+                padding: 5rem 2rem;
+            }
+
+            .section-title {
                 font-size: 2rem;
+            }
+
+            /* Desktop Grid Layouts */
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+        }
+
+
+        /* ==========================================================================
+           3. MOBILE VIEW FORMAT (Screens 768px and smaller)
+           ========================================================================== */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1.2rem;
+                position: relative;
+            }
+
+            .logo span {
+                font-size: 0.95rem;
+                line-height: 1.2;
+            }
+
+            .logo-img {
+                height: 36px;
+            }
+
+            /* Mobile Hamburger Toggle */
+            .mobile-toggle {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+            }
+
+            .mobile-toggle span {
+                width: 25px;
+                height: 3px;
+                background-color: var(--secondary-color);
+                border-radius: 2px;
+                transition: all 0.3s;
+            }
+
+            /* Mobile Navigation Dropdown */
+            .nav-links {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                list-style: none;
+                padding: 1rem 0;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .nav-links.active {
+                display: flex; /* Shown when toggled */
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 1.5rem;
+                font-weight: 600;
+                color: var(--text-dark);
+            }
+
+            .nav-links a:hover {
+                background-color: #f1f5f9;
+                color: var(--primary-color);
+            }
+
+            .hero {
+                padding: 3.5rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                margin-bottom: 2rem;
+            }
+
+            /* Mobile Single Column Stacked Grids */
+            .product-grid,
+            .grid,
+            .team-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .contact-info {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -410,7 +524,15 @@
                 <img src="images/apss.png" alt="APSS Logo" class="logo-img">
                 <span>Automated Patient Screening Services Private Limited</span>
             </a>
-            <ul class="nav-links">
+            
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#services">Services</a></li>
@@ -507,7 +629,7 @@
         </div>
     </section>
 
-    <!-- Services / Objects Section -->
+    <!-- Services Section -->
     <section id="services" style="background-color: #f1f5f9;">
         <div class="section">
             <h2 class="section-title">Core Capabilities</h2>
@@ -586,7 +708,6 @@ Indian Institute of Technology Indore</p>
             <p class="section-subtitle">Get in touch with our team for product inquiries or partnerships</p>
             
             <div class="contact-container">
-                <!-- Contact Information -->
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
                     <p>Reach out directly via phone, email, or visit our office at IIT Indore.</p>
@@ -624,8 +745,24 @@ Indian Institute of Technology Indore</p>
 
     <!-- Footer -->
     <footer>
-        <p style="margin-top: 0.5rem;">&copy; Automated Patient Screening Services Private Limited. All rights reserved.</p>
+        <p>&copy; Automated Patient Screening Services Private Limited. All rights reserved.</p>
     </footer>
 
+    <!-- Mobile Navigation Menu Script -->
+    <script>
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked on mobile
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
