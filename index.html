@@ -285,10 +285,18 @@
         }
 
         /* --- Team Section --- */
-        .team-grid {
+        /*.team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
+        }*/
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 per line */
+            gap: 2rem;
+            max-width: 600px; /* Keeps the cards well-proportioned */
+            margin: 0 auto;   /* Centers the grid on the page */
         }
 
         .team-card {
