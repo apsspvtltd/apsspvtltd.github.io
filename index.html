@@ -300,17 +300,14 @@
         }
 
         .avatar {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background-color: #e0f2fe;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
+            object-fit: cover;
+            border: 3px solid #e0f2fe;
             margin: 0 auto 1rem auto;
+            display: block;
+            background-color: #f1f5f9;
         }
 
         .team-card h4 {
@@ -326,10 +323,7 @@
 
         /* --- Contact Section --- */
         .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
@@ -341,6 +335,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .contact-info h3 {
@@ -380,32 +375,6 @@
 
         .info-details a:hover {
             color: var(--primary-color);
-        }
-
-        .contact-box {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            width: 100%;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            font-size: 0.95rem;
         }
 
         footer {
@@ -572,22 +541,22 @@
         
         <div class="team-grid">
             <div class="team-card">
-                <div class="avatar">AM</div>
+                <img src="images/ayan-mondal.jpg" alt="Mr. Ayan Mondal" class="avatar">
                 <h4>Mr. Ayan Mondal</h4>
                 <p>First Director</p>
             </div>
             <div class="team-card">
-                <div class="avatar">PK</div>
+                <img src="images/parimal-kar.jpg" alt="Mr. Parimal Kar" class="avatar">
                 <h4>Mr. Parimal Kar</h4>
                 <p>First Director</p>
             </div>
             <div class="team-card">
-                <div class="avatar">SD</div>
+                <img src="images/somnath-dey.jpg" alt="Mr. Somnath Dey" class="avatar">
                 <h4>Mr. Somnath Dey</h4>
                 <p>First Director</p>
             </div>
             <div class="team-card">
-                <div class="avatar">SC</div>
+                <img src="images/sourav-chandra.jpg" alt="Mr. Sourav Chandra" class="avatar">
                 <h4>Mr. Sourav Chandra</h4>
                 <p>Promoter / Director</p>
             </div>
@@ -641,32 +610,12 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="contact-box">
-                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required placeholder="Dr. / Mr. / Ms. Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4" required placeholder="Which product or service are you inquiring about?"></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>IIT Indore, Khandwa Road, Simrol, Indore, Madhya Pradesh 453552, India</p>
         <p style="margin-top: 0.5rem;">&copy; Automated Patient Screening Services Private Limited. All rights reserved.</p>
     </footer>
 
