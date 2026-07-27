@@ -50,20 +50,23 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--secondary-color);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        /* --- Logo Image Styling --- */
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -403,9 +406,10 @@
     <!-- Header / Navbar -->
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <span>🩺</span> Automated Patient Screening Services Private Limited
-            </div>
+            <a href="#" class="logo">
+                <img src="images/apss.png" alt="APSS Logo" class="logo-img">
+                <span>Automated Patient Screening Services Private Limited</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#products">Products</a></li>
@@ -597,14 +601,6 @@ Indian Institute of Technology Indore</p>
                             Indore, Madhya Pradesh 453552, India</p>
                         </div>
                     </div>
-
-                    <!--<div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div class="info-details">
-                            <h4>Phone</h4>
-                            <p><a href="tel:+917316603382">+91 731 660 3426</a></p>
-                        </div>
-                    </div>-->
 
                     <div class="info-item">
                         <div class="info-icon">✉️</div>
