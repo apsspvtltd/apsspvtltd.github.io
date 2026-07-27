@@ -1,1 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Patient Screening Services Pvt. Ltd.</title>
+    <style>
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary-color: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #334155;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --accent-green: #10b981;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* --- Section Container --- */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* --- Products Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-header {
+            background-color: #e0f2fe;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .badge-ai {
+            background-color: #8b5cf6;
+        }
+
+        .product-body {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.6rem;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+        }
+
+        .product-features li {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* --- Services / Features Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Team Section --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e0f2fe;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 1rem auto;
+        }
+
+        .team-card h4 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .team-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        /* --- Contact & Status Alert --- */
+        .contact-box {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .status-msg {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 4px;
+            display: none;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .status-msg.success {
+            display: block;
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-msg.error {
+            display: block;
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>🩺</span> APSS Pvt. Ltd.
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Next-Generation Automated Patient Screening</h1>
+            <p>Empowering healthcare through Artificial Intelligence, IoT diagnostics, advanced medical tech, and automated screening solutions.</p>
+            <a href="#products" class="btn">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About the Company</h2>
+        <p class="section-subtitle">Bridging Technology & Patient Care</p>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-dark);">
+            <p>
+                <strong>Automated Patient Screening Services Private Limited</strong> is dedicated to transforming 
+                the modern healthcare landscape. By integrating smart medical devices, artificial intelligence (AI), 
+                machine learning (ML), and Internet of Things (IoT) technologies, we build cutting-edge diagnostic 
+                and remote monitoring platforms for faster, more accurate patient care.
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section" style="border-top: 1px solid #e2e8f0;">
+        <h2 class="section-title">Featured Products & Technologies</h2>
+        <p class="section-subtitle">Pioneering diagnostic kits, screening platforms, and IoT health monitors</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-header">
+                    🖥️
+                    <span class="badge badge-ai">AI Enabled</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Smart Screening Kiosk</h3>
+                    <p class="product-desc">An all-in-one automated vital check station designed for rapid patient triage in clinics and hospitals.</p>
+                    <ul class="product-features">
+                        <li>Instant multi-vital tracking</li>
+                        <li>Automated risk assessment</li>
+                        <li>Seamless EMR system integration</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline">Request Demo</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-header">
+                    📲
+                    <span class="badge">IoT Platform</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Remote Telehealth Hub</h3>
+                    <p class="product-desc">A cloud-based remote patient monitoring solution enabling continuous health analytics and consultations.</p>
+                    <ul class="product-features">
+                        <li>Real-time patient data streaming</li>
+                        <li>Secure end-to-end encrypted portal</li>
+                        <li>Automated doctor alert system</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline">Learn More</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-header">
+                    ⌚
+                    <span class="badge">Wearable Tech</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Health Tracking Sensor</h3>
+                    <p class="product-desc">Compact continuous monitoring wearable for patient preventive care and post-operative monitoring.</p>
+                    <ul class="product-features">
+                        <li>Low-power IoT connectivity</li>
+                        <li>Non-invasive diagnostic tracking</li>
+                        <li>Lightweight medical-grade design</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline">Inquire Specs</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-header">
+                    🧪
+                    <span class="badge">Diagnostics</span>
+                </div>
+                <div class="product-body">
+                    <h3 class="product-title">Digital Diagnostic Kit</h3>
+                    <p class="product-desc">Rapid screening diagnostic testing system for mobile clinics, community centers, and health camps.</p>
+                    <ul class="product-features">
+                        <li>Rapid turnaround time</li>
+                        <li>High accuracy lab-quality results</li>
+                        <li>Portable field-ready design</li>
+                    </ul>
+                    <a href="#contact" class="btn-outline">Order Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Objects Section -->
+    <section id="services" style="background-color: #f1f5f9;">
+        <div class="section">
+            <h2 class="section-title">Core Capabilities</h2>
+            <p class="section-subtitle">Innovating across multiple domains of health tech</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Diagnostic & Medical Devices</h3>
+                    <p>Design, assembly, manufacturing, and distribution of digital healthcare devices, diagnostic kits, and health tracking wearables.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>AI & IoT Research</h3>
+                    <p>Pioneering Research & Development in AI/ML-driven diagnostics, automated screening algorithms, and smart connected health devices.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏥</div>
+                    <h3>Telemedicine & Analytics</h3>
+                    <p>Providing remote patient monitoring, digital health portals, predictive health analytics, and personalized remote consultations.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Healthcare Management</h3>
+                    <p>Expert advisory and consultancy services for hospital operations, medical compliance, health data management, and quality control systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section">
+        <h2 class="section-title">Board of Directors</h2>
+        <p class="section-subtitle">Guided by experts in research and technology</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="avatar">AM</div>
+                <h4>Mr. Ayan Mondal</h4>
+                <p>First Director</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">PK</div>
+                <h4>Mr. Parimal Kar</h4>
+                <p>First Director</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">SD</div>
+                <h4>Mr. Somnath Dey</h4>
+                <p>First Director</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">SC</div>
+                <h4>Mr. Sourav Chandra</h4>
+                <p>Promoter / Director</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f1f5f9;">
+        <div class="section">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with our team for product inquiries or partnerships</p>
+            
+            <div class="contact-box">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required placeholder="Dr. / Mr. / Ms. Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" required placeholder="Which product or service are you inquiring about?"></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="btn" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                    <div id="statusMsg" class="status-msg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Registered Office: Indore, Madhya Pradesh, India</p>
+        <p style="margin-top: 0.5rem;">&copy; Automated Patient Screening Services Private Limited. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Handle Contact Form Submission -->
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Update UI state
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            statusMsg.className = 'status-msg';
+            statusMsg.innerText = '';
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    statusMsg.className = 'status-msg success';
+                    statusMsg.innerText = 'Thank you! Your message has been sent successfully.';
+                    contactForm.reset();
+                } else {
+                    statusMsg.className = 'status-msg error';
+                    statusMsg.innerText = data.error || 'Failed to send message. Please try again.';
+                }
+            } catch (err) {
+                statusMsg.className = 'status-msg error';
+                statusMsg.innerText = 'Server error or network unreachable.';
+            } finally {
+                submitBtn.innerText = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
